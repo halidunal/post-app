@@ -9,7 +9,6 @@ const register = async (req, res) => {
     if (user) {
       return res.status(500).json({ msg: "This user already exist" });
     }
-    console.log(password.lenght);
     if (password.length < 6) {
       return res
         .status(500)

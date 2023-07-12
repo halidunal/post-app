@@ -7,7 +7,7 @@ export const register = (authData) => async (dispatch) => {
       "http://localhost:5000/register",
       authData
     );
-    dispatch({ tpye: "REGISTER", payload: data });
+    dispatch({ type: "REGISTER", payload: data });
     window.location = "/";
   } catch (error) {
     toast.error(error.response?.data?.msg);
@@ -17,7 +17,7 @@ export const register = (authData) => async (dispatch) => {
 export const login = (authData) => async (dispatch) => {
   try {
     const { data } = await axios.post("http://localhost:5000/login", authData);
-    dispatch({ tpye: "LOGIN", payload: data });
+    dispatch({ type: "LOGIN", payload: data });
     window.location = "/";
   } catch (error) {
     toast.error(error.response?.data?.msg);
@@ -27,7 +27,7 @@ export const login = (authData) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     await axios.get("http://localhost:5000/logout");
-    dispatch({ tpye: "LOGOUT" });
+    dispatch({ type: "LOGOUT" });
     window.location = "/";
   } catch (error) {
     toast.error(error.response?.data?.msg);
