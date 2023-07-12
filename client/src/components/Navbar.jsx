@@ -8,12 +8,15 @@ const Navbar = () => {
 	const handleLogout = () => {
 		dispatch(logout())
 	}
+	const openModal = () => {
+		dispatch({type: "MODAL", payload: true})
+	}
 	return (
 		<div className='h-20 bg-indigo-600 flex items-center justify-between px-5'>
 			<div className='text-white font-bold text-2xl cursor-pointer'>PostApp</div>
 			<div className='flex items-center space-x-5'>
 				<input placeholder='Search...' className='rounded-md outline-none p-2' />
-				<div className='w-36 font-bold border p-2 rounded-md text-center text-white cursor-pointer hover:bg-white hover:text-indigo-600'>New Post</div>
+				<div onClick={openModal} className='w-36 font-bold border p-2 rounded-md text-center text-white cursor-pointer hover:bg-white hover:text-indigo-600'>New Post</div>
 				<BiLogOut onClick={handleLogout} size={25} className='text-white cursor-pointer'/>
 			</div>
 		</div>
