@@ -5,11 +5,12 @@ const bcrypte = require("bcryptjs");
 const register = async (req, res) => {
   try {
     const { username, password, email } = req.body;
-    const user = await AuthSchema.findOne(email);
+    const user = await AuthSchema.findOne({ email });
     if (user) {
       return res.status(500).json({ msg: "This user already exist" });
     }
-    if (password.lenght < 6) {
+    console.log(password.lenght);
+    if (password.length < 6) {
       return res
         .status(500)
         .json({ msg: "Password cannot be less than 6 characters" });
@@ -21,7 +22,7 @@ const register = async (req, res) => {
     }
 
     const newUser = await AuthSchema.create({
-      userName,
+      username,
       email,
       password: passwordHash,
     });
@@ -43,7 +44,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await AuthSchema.findOne(email);
+    const user = await AuthSchema.findOne({ email });
 
     if (!user) {
       return res.status(500).json({ msg: "No user found with matching email" });
