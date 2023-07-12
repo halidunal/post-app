@@ -25,11 +25,6 @@ export const login = (authData) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  try {
-    await axios.get("http://localhost:5000/logout");
-    dispatch({ type: "LOGOUT" });
-    window.location = "/";
-  } catch (error) {
-    toast.error(error.response?.data?.msg);
-  }
+  dispatch({ type: "LOGOUT" });
+  window.location = "/auth";
 };

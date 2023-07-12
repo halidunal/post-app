@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import useToken from "./hooks/useToken";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [token] = useToken();
@@ -11,10 +12,11 @@ function App() {
     <div>
       <Toaster position="top-right" />
       <BrowserRouter>
+        {token?.token && <Navbar />}
         <Routes>
           <Route
             path="/"
-            element={!token?.token ? <Link to={"/auth"} /> : <Home />}
+            element={/*!token?.token ? <Link to={"/auth"} /> :*/ <Home />}
           />
           <Route path="/auth" element={<Auth />} />
         </Routes>
