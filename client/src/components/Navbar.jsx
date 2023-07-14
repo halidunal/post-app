@@ -17,7 +17,7 @@ const Navbar = () => {
 			<div className='flex items-center space-x-5'>
 				<input placeholder='Search...' className='rounded-md outline-none p-2' />
 				<div onClick={openModal} className='w-36 font-bold border p-2 rounded-md text-center text-white cursor-pointer hover:bg-white hover:text-indigo-600'>New Post</div>
-				<BiLogOut onClick={handleLogout} size={25} className='text-white cursor-pointer'/>
+				<BiLogOut onClick={handleLogout} title='Log out' size={25} className='text-white cursor-pointer'/>
 			</div>
 		</div>
 	)

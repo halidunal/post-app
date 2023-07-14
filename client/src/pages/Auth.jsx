@@ -3,7 +3,7 @@ import { login, register } from '../redux/actions/authActions';
 import { useDispatch} from "react-redux";
 
 const Auth = () => {
-	const [singUp, setSignUp] = useState(true);
+	const [singUp, setSignUp] = useState(false);
 	const [authData, setAuthData] = useState({username: "", email: "", password: ""})
 	const dispatch = useDispatch()
 
@@ -29,7 +29,7 @@ const Auth = () => {
 			{singUp ?
 			<div className='mt-2 text-sm'>Already have an account?<span className='text-blue-500 cursor-pointer' onClick={() => setSignUp(false)}> Log in</span></div>
 			:
-			<div className='mt-2 text-sm'>Don’t have an account?<span className='text-blue-500' onClick={() => setSignUp(true)}> Sign Up</span></div>
+			<div className='mt-2 text-sm'>Don’t have an account?<span className='text-blue-500 cursor-pointer' onClick={() => setSignUp(true)}> Sign Up</span></div>
 			}
 		</div>
 	)

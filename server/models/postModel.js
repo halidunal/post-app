@@ -14,6 +14,15 @@ const PostSchema = new mongoose.Schema({
   tag: {
     type: String,
   },
+  username: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  date: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 module.exports = mongoose.model("post", PostSchema);

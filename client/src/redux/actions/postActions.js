@@ -36,9 +36,7 @@ export const updatePost = (id, postData) => async (dispatch) => {
 
 export const deletePost = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.delete(
-      `http://localhost:5000/deletePost/${id}`
-    );
+    await axios.delete(`http://localhost:5000/deletePost/${id}`);
     dispatch({ type: "DELETE_POST", payload: id });
   } catch (error) {
     toast.error(error.response?.data?.msg);
